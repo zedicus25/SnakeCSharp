@@ -6,7 +6,8 @@ namespace SnakeApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Apple apple = new Apple(new Position(10, 5));
+            apple.Render();
         }
     }
 }
