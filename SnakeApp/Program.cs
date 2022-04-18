@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace SnakeApp
 {
@@ -6,8 +7,14 @@ namespace SnakeApp
     {
         static void Main(string[] args)
         {
-            Apple apple = new Apple(new Position(10, 5));
-            apple.Render();
+            Snake s = new Snake();
+            while (true)
+            {
+                s.Render();
+                s.Move(Direction.Right);
+                Thread.Sleep(1000);
+            }
+            
         }
     }
 }

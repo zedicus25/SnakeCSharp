@@ -13,7 +13,7 @@ namespace SnakeApp
         public void Render()
         {
             Console.SetCursorPosition(_pos.Left, _pos.Top);
-            Console.WriteLine("0");
+            Console.Write("0");
             Console.SetCursorPosition(0,0);
         }
     }

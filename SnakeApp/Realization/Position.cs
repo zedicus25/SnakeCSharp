@@ -16,8 +16,5 @@ namespace SnakeApp
             Top = tmp.Top;
             Left = tmp.Left;
         }
-
-        public Position RightByN(int n) => new Position(Top, Left + n);
-        public Position DownByN(int n) => new Position(Top+n, Left);
     }
 }
