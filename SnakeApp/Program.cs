@@ -7,13 +7,15 @@ namespace SnakeApp
     {
         static void Main(string[] args)
         {
-            Snake s = new Snake();
+            GameManager gameManager = new GameManager();
             while (true)
             {
-                s.Render();
-                s.Move(Direction.Right);
-                Thread.Sleep(1000);
+                gameManager.StartGame();
+                Thread.Sleep(2000);
+                Console.ReadKey();
             }
+     
+           
             
         }
     }

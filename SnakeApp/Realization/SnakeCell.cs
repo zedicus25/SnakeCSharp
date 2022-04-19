@@ -5,19 +5,22 @@ namespace SnakeApp
     public class SnakeCell : IRenderer
     {
         public Position Position { get; private set; }
+        private char _icon = '#';
 
-        public SnakeCell(Position position)
+        public SnakeCell(Position pos)
         {
-            Position = new Position(position);
+            Position = new Position(pos.Top, pos.Left);
+        }
+
+        public SnakeCell(int top, int left)
+        {
+            Position = new Position(top,left);
         }
 
         public void Render()
         {
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.WriteLine("#");
+            Console.Write(_icon);
         }
-        
-        public SnakeCell RightByN(int n) => new SnakeCell(new Position(Position.Top, Position.Left + n));
-        public SnakeCell DownByN(int n) => new SnakeCell(new Position(Position.Top+n, Position.Left));
     }
 }

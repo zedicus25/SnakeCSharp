@@ -3,61 +3,50 @@ using System.Collections.Generic;
 
 namespace SnakeApp 
 {
-    public enum Direction
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
     public class Snake : IRenderer
     {
-        private List<SnakeCell> _body;
-        private SnakeCell Head => _body[0];
+        public SnakeCell Head { get; private set; }
 
-        public Snake()
-        {
-            _body = new List<SnakeCell>();
-            _body.Add(new SnakeCell(new Position(0,0)));
-        }
-        public void Move(Direction direction)
-        {
-            SnakeCell newHead = null;
+        public Queue<SnakeCell> Body { get; }
 
-            switch (direction)
+        public Snake(Position spawnPos)
+        {
+            Head = new SnakeCell(spawnPos);
+            Body = new Queue<SnakeCell>(25);
+            for (int i = 2; i >= 0; i--)
             {
-                case Direction.Up:
-                    newHead = Head.DownByN(-1);
-                    break;
-
-                case Direction.Left:
-                    newHead = Head.RightByN(-1);
-                    break;
-
-                case Direction.Down:
-                    newHead = Head.DownByN(1);
-                    break;
-
-                case Direction.Right:
-                    newHead = Head.RightByN(1);
-                    break;
-
+                Body.Enqueue(new SnakeCell(Head.Position.Left -i - 1, Head.Position.Top));
             }
 
-            _body.Insert(0, newHead);
-            _body.RemoveAt(_body.Count - 1);
+            Render();
         }
 
         public void Render()
         {
-            Console.Clear();
-            Console.SetCursorPosition(Head.Position.Left+1, Head.Position.Top);
-            Console.Write("@");
 
-            foreach (var cell in _body)
+            foreach (var cell in Body)
             {
                 cell.Render();
             }
+        }
+
+        public void Move(Direction direction, bool eat = false)
+        {
+            Head.Render();
+            Body.Enqueue(new SnakeCell(Head.Position.Left, Head.Position.Top));
+            if (!eat)
+                Body.Dequeue();
+
+            Head = direction switch
+            {
+                Direction.Down => new SnakeCell(Head.Position.Top, Head.Position.Left + 1),
+                Direction.Up => new SnakeCell(Head.Position.Top, Head.Position.Left - 1),
+                Direction.Left => new SnakeCell(Head.Position.Top - 1, Head.Position.Left),
+                Direction.Right => new SnakeCell(Head.Position.Top + 1, Head.Position.Left),
+                _ => Head
+            };
+
+            Render();
         }
     }
 }

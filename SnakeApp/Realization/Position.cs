@@ -2,19 +2,13 @@ namespace SnakeApp
 {
     public class Position
     {
-        public int Left { get; }
-        public int Top { get; }
+        public int Left { get; set; }
+        public int Top { get; set; }
 
         public Position(int top, int left)
         {
             Top = top;
             Left = left;
-        }
-
-        public Position(Position tmp)
-        {
-            Top = tmp.Top;
-            Left = tmp.Left;
         }
     }
 }
