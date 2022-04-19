@@ -22,5 +22,11 @@ namespace SnakeApp
             Console.SetCursorPosition(Position.Left, Position.Top);
             Console.Write(_icon);
         }
+
+        public void Clear()
+        {
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.Write(" ");
+        }
     }
 }

@@ -32,5 +32,9 @@ namespace SnakeApp
             Console.SetCursorPosition(Position.Left, Position.Top);
             Console.Write("0");
         }
+
+        public void Clear()
+        {
+        }
     }
 }

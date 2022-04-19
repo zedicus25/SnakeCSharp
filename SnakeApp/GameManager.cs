@@ -23,9 +23,8 @@ namespace SnakeApp
         }
         public void StartGame()
         {
-
             Console.Clear();
-            //DrawField();
+            DrawField();
 
             _apple = _apple.GenerateApple(_mapHeight, _mapWidth, _snake);
             _apple.Render();
@@ -48,6 +47,13 @@ namespace SnakeApp
                     _snake.Move(_direction);
                 }
 
+                if (_snake.Head.Position.Top == _mapHeight - 2
+                    || _snake.Head.Position.Top == 0
+                    || _snake.Head.Position.Left == _mapWidth - 2
+                    || _snake.Head.Position.Left == 0 ||
+                    _snake.Body.Any(b => b.Position.Left == _snake.Head.Position.Left 
+                    && b.Position.Top == _snake.Head.Position.Top))
+                    break;
 
                 Thread.Sleep(250);
             }
