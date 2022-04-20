@@ -20,6 +20,7 @@ namespace SnakeApp
                     switch (userInput)
                     {
                         case 1:
+                            gameManager = new GameManager();
                             Console.Clear();
                             do
                             {
