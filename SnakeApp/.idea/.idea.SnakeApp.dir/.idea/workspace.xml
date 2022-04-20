@@ -10,8 +10,10 @@
     <list default="true" id="36f33cce-7b79-4ec2-8e32-dd1a389145a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SnakeApp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnakeApp.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.vs/SnakeApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/SnakeApp/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realization/Apple.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realization/Apple.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Realization/Direction.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Realization/Position.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realization/Position.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realization/Snake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realization/Snake.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realization/SnakeCell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realization/SnakeCell.cs" afterDir="false" />
@@ -22,7 +24,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Downloads/is as equals/Product.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d1cfd9236937d91f4a6892bcf2f798cdb39dd5c19a6974f323ba916d71bcda1/ConsoleKeyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Downloads/thread/Program.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -80,6 +85,7 @@
       <workItem from="1650361139210" duration="2000" />
       <workItem from="1650370735839" duration="1648000" />
       <workItem from="1650381793546" duration="443000" />
+      <workItem from="1650439111430" duration="11139000" />
     </task>
     <servers />
   </component>

@@ -5,6 +5,7 @@ namespace SnakeApp
     public class Apple : IRenderer
     {
         public Position Position { get; private set; }
+        private char _icon = '0';
 
         public Apple()
         {
@@ -15,26 +16,23 @@ namespace SnakeApp
             Position = new Position(pos.Top, pos.Left);
         }
 
-        public Apple GenerateApple(int height, int width, Snake s)
+        public void GenerateNewPosition(int height, int width)
         {
-            Apple apl = null;
             Random r = new Random();
-            do
-            {
-                apl = new Apple(new Position(r.Next(1,width-2),r.Next(1,height-2)));
-
-            } while (s.Head.Position.Top == apl.Position.Top && s.Head.Position.Left == apl.Position.Left);
-
-            return apl;
+            Position = new Position(r.Next(1,height-2),r.Next(1,width-2));
         }
         public void Render()
         {
             Console.SetCursorPosition(Position.Left, Position.Top);
-            Console.Write("0");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(_icon);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void Clear()
         {
+            Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.Write(" ");
         }
     }
 }

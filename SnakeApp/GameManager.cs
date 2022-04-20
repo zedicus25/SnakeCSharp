@@ -1,99 +1,84 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace SnakeApp
 {
     internal class GameManager
     {
-        private int _mapWidth = 20;
-        private int _mapHeight = 30;
+        private int _mapWidth = 30;
+        private int _mapHeight = 20;
         private Snake _snake;
         private Apple _apple;
-        private Direction _direction;
+        private ConsoleKeyInfo _key;
+        private char _borderIcon = '#';
+        public bool SnakeMove => _snake.IsDead(_mapHeight, _mapWidth);
 
         public GameManager()
         {
             _snake = new Snake(new Position(5, 5));
             _apple = new Apple();
-            _direction = Direction.Right;
         }
         public void StartGame()
         {
             Console.Clear();
             DrawField();
 
-            _apple = _apple.GenerateApple(_mapHeight, _mapWidth, _snake);
+            _apple.GenerateNewPosition(_mapHeight, _mapWidth);
             _apple.Render();
 
             while (true)
             {
-                Direction old = _direction;
-                if (_direction == old)
-                    _direction = UserInput();
+                UserInput();
+                ConsoleKey old = _key.Key;
+                if (_key.Key == 0)
+                    old = ConsoleKey.RightArrow; ;
 
-                if(_snake.Head.Position.Top == _apple.Position.Top &&
-                    _snake.Head.Position.Left == _apple.Position.Left)
+                if(_snake.Head.Position.Equals(_apple.Position))
                 {
-                    _snake.Move(_direction, true);
-                    _apple = _apple.GenerateApple(_mapHeight, _mapWidth, _snake);
+                    _snake.Move(old, true);
+                    _apple.GenerateNewPosition(_mapHeight, _mapWidth);
                     _apple.Render();
                 }
                 else
                 {
-                    _snake.Move(_direction);
+                    _snake.Move(old);
                 }
 
-                if (_snake.Head.Position.Top == _mapHeight - 2
-                    || _snake.Head.Position.Top == 0
-                    || _snake.Head.Position.Left == _mapWidth - 2
-                    || _snake.Head.Position.Left == 0 ||
-                    _snake.Body.Any(b => b.Position.Left == _snake.Head.Position.Left 
-                    && b.Position.Top == _snake.Head.Position.Top))
+                if (_snake.IsDead(_mapHeight,_mapWidth))
                     break;
 
                 Thread.Sleep(250);
             }
         }
 
-        public void DrawField()
+        private void DrawField()
         {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             for (int i = 0; i < _mapWidth; i++)
             {
                 Console.SetCursorPosition(i,0);
-                Console.Write("*");
+                Console.Write(_borderIcon);
                 Console.SetCursorPosition(i, _mapHeight-1);
-                Console.Write("*");
+                Console.Write(_borderIcon);
             }
             for (int i = 0; i < _mapHeight; i++)
             {
                 Console.SetCursorPosition(0, i);
-                Console.Write("*");
+                Console.Write(_borderIcon);
                 Console.SetCursorPosition(_mapWidth-1, i);
-                Console.Write("*");
+                Console.Write(_borderIcon);
             }
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
-        private Direction UserInput()
+        private void UserInput()
         {
             if (!Console.KeyAvailable)
-                return _direction;
-
-            ConsoleKey key = Console.ReadKey(true).Key;
-
-            _direction = key switch
-            {
-                ConsoleKey.UpArrow when _direction != Direction.Down => Direction.Up,
-                ConsoleKey.DownArrow when _direction != Direction.Up => Direction.Down,
-                ConsoleKey.LeftArrow when _direction != Direction.Right => Direction.Left,
-                ConsoleKey.RightArrow when _direction != Direction.Left => Direction.Right,
-                _ => _direction
-            };
-
-            return _direction;
+                return;
+            ConsoleKeyInfo key = Console.ReadKey(true);
+            _key = key;
         }
+
     }
 }

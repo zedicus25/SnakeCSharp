@@ -5,7 +5,7 @@ namespace SnakeApp
     public class SnakeCell : IRenderer
     {
         public Position Position { get; private set; }
-        private char _icon = '#';
+        private char _icon = '@';
 
         public SnakeCell(Position pos)
         {
@@ -20,7 +20,9 @@ namespace SnakeApp
         public void Render()
         {
             Console.SetCursorPosition(Position.Left, Position.Top);
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write(_icon);
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public void Clear()

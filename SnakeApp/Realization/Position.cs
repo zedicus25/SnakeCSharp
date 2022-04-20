@@ -10,5 +10,17 @@ namespace SnakeApp
             Top = top;
             Left = left;
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Position)
+            {
+                Position tmp = obj as Position;
+                if (Left == tmp.Left && Top == tmp.Top) 
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
