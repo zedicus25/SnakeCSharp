@@ -20,6 +20,7 @@ namespace SnakeApp
         }
         public void StartGame()
         {
+            Console.CursorVisible = false;
             Console.Clear();
             DrawField();
 
@@ -31,7 +32,7 @@ namespace SnakeApp
                 UserInput();
                 ConsoleKey old = _key.Key;
                 if (_key.Key == 0)
-                    old = ConsoleKey.RightArrow; ;
+                    old = ConsoleKey.RightArrow;
 
                 if(_snake.Head.Position.Equals(_apple.Position))
                 {
@@ -49,6 +50,8 @@ namespace SnakeApp
 
                 Thread.Sleep(250);
             }
+
+            Console.CursorVisible = true;
         }
 
         private void DrawField()
@@ -77,7 +80,7 @@ namespace SnakeApp
             if (!Console.KeyAvailable)
                 return;
             ConsoleKeyInfo key = Console.ReadKey(true);
-            _key = key;
+            _key = _key.Key != key.Key ? key : _key;
         }
 
     }

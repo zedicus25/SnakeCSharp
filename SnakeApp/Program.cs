@@ -8,15 +8,32 @@ namespace SnakeApp
         static void Main(string[] args)
         {
             GameManager gameManager = new GameManager();
-            //Console.WriteLine();
-            while (gameManager.SnakeMove == false)
+            int userInput = -1;
+            do
             {
-                gameManager.StartGame();
-                Thread.Sleep(2000);
-            }
-            Console.Clear();
-            Console.WriteLine("Game over!");
-            
+                Console.Clear();
+                Console.WriteLine("1 - Play");
+                Console.WriteLine("0 - Exit");
+                string str = Console.ReadLine();
+                if (int.TryParse(str, out userInput))
+                {
+                    switch (userInput)
+                    {
+                        case 1:
+                            Console.Clear();
+                            do
+                            {
+                                gameManager.StartGame();
+                                Thread.Sleep(1000);
+                                
+                            } while (gameManager.SnakeMove == false);
+                            Console.Clear();
+                            Console.WriteLine("Game over!");
+                            Thread.Sleep(1000);
+                            break;
+                    }
+                }
+            } while (userInput != 0);
         }
     }
 }

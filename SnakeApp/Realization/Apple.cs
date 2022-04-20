@@ -19,7 +19,7 @@ namespace SnakeApp
         public void GenerateNewPosition(int height, int width)
         {
             Random r = new Random();
-            Position = new Position(r.Next(1,height-2),r.Next(1,width-2));
+            Position = new Position(r.Next(2,height-2),r.Next(2,width-2));
         }
         public void Render()
         {

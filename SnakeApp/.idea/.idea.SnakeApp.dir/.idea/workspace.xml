@@ -9,14 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="36f33cce-7b79-4ec2-8e32-dd1a389145a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SnakeApp.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SnakeApp.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/SnakeApp/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/SnakeApp/v17/.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realization/Apple.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realization/Apple.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realization/Direction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realization/Position.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realization/Position.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Realization/Snake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realization/Snake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Realization/SnakeCell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Realization/SnakeCell.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +81,7 @@
       <workItem from="1650361139210" duration="2000" />
       <workItem from="1650370735839" duration="1648000" />
       <workItem from="1650381793546" duration="443000" />
-      <workItem from="1650439111430" duration="11139000" />
+      <workItem from="1650439111430" duration="12644000" />
     </task>
     <servers />
   </component>

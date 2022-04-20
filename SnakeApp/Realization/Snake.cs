@@ -15,7 +15,6 @@ namespace SnakeApp
             Head = new SnakeCell(spawnPos);
             _body = new Queue<SnakeCell>(25);
             _moves = new MoveDirection(MoveRight, MoveLeft, MoveDown, MoveUp);
-            Render();
         }
 
         public void Render()
